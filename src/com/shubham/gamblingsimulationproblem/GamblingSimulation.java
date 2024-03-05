@@ -18,27 +18,37 @@ public class GamblingSimulation {
     	  
     	  System.out.println("Win Stack ="+winStack);
     	  System.out.println("Loose Stack ="+looseStack);
+    	  System.out.println("--------------------------------------");
 		}
 		
 		public static void gamePlay() {
 			
-			Random random = new Random();
-			int playStatus = random.nextInt(9)%2;
-			System.out.println("playStatus ="+playStatus);
-			
-			if(playStatus == loose) {
-				looseStack += 1;
-			}else {
-				winStack += 1;
+			while(true) {
+				
+				gameStatus();
+				Random random = new Random();
+				int playStatus = random.nextInt(9)%2;
+				System.out.println("playStatus ="+playStatus);
+				
+				if(playStatus == loose) {
+					looseStack += 1;
+				}else {
+					winStack += 1;
+				}
+				if(winStack == STACK_PER_DAY/2 ) {
+					break;
+				}
+				if(looseStack == STACK_PER_DAY/2) {
+					break;
+				}
 			}
-		}
+	}
     
 		public static void main(String[] args) {
 		
 			System.out.println("Welcome to Gambling Simulation Problem");
-		
-			gameStatus();
+			
 			 gamePlay();
-			gameStatus();
-		}
+		
+	}
 }
