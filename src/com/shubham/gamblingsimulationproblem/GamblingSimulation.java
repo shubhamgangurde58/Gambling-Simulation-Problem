@@ -8,27 +8,28 @@ public class GamblingSimulation {
 		private static final int BIT_PER_GAME = 1;
 		private static final int win = 1;
 		private static final int loose = 0;
-		
-		private static int winStack = 0;
-		private static int looseStack = 0;
     
+		private static final int[] winAmount = new int[20];
+		private static final int[] looseAmount = new int[20];
+		
+		
 		public static void gameStatus() {
     	  System.out.println("STACK_PER_DAY = "+STACK_PER_DAY);
     	  System.out.println("BIT_PER_GAME = "+BIT_PER_GAME);
     	  
-    	  System.out.println("Win Stack ="+winStack);
-    	  System.out.println("Loose Stack ="+looseStack);
-    	  System.out.println("--------------------------------------");
 		}
-		
 		public static void gamePlay() {
+			gameStatus();
+		 for(int i=0;i<20;i++) {
+			 
+			 int winStack = 0;
+			int looseStack = 0;
+			System.out.println("Day"+(i+1));
 			
 			while(true) {
-				
-				gameStatus();
+			
 				Random random = new Random();
 				int playStatus = random.nextInt(9)%2;
-				System.out.println("playStatus ="+playStatus);
 				
 				if(playStatus == loose) {
 					looseStack += 1;
@@ -41,7 +42,17 @@ public class GamblingSimulation {
 				if(looseStack == STACK_PER_DAY/2) {
 					break;
 				}
-			}
+				
+			}		
+			winAmount[i] = winStack;
+			looseAmount[i] = looseStack;
+	
+			System.out.println("Win Stack ="+winStack);
+			System.out.println("Loose Stack ="+looseStack);	
+			System.out.println("---------------------------");
+
+		 }
+		
 	}
     
 		public static void main(String[] args) {
