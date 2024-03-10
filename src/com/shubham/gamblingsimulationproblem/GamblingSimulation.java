@@ -1,6 +1,7 @@
 package com.shubham.gamblingsimulationproblem;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class GamblingSimulation {
 
@@ -25,16 +26,25 @@ public class GamblingSimulation {
     	  System.out.println("BIT_PER_GAME = "+BIT_PER_GAME);
     	  
 		}
+		
 		public static void gamePlay() {
+		
 			gameStatus();
-			
-			  
 			int maxwon = 0; 
 			int maxloose = 0;
 			 
 			 int winindex = 0;
 			 int looseindex = 0;
+			
+			 int userchoice ; 
+			 int yes = 1;
 			 
+			 int userchoise;
+			do
+			 {
+				 
+				 
+				 
 		 for(int i=0;i<20;i++) {
 				
 			
@@ -93,15 +103,25 @@ public class GamblingSimulation {
 					System.out.println("Loose Stack ="+looseStack);	
 					
 					System.out.println("---------------------------");
-				 
+		 
+		 
 		 	}
+		
 				 	System.out.println("Total_win_day="+total_win_day);
 				 	System.out.println("Total_loose_day="+total_loose_day);
 				 
 				 	System.out.println("Day ="+winindex+" "+"luckiest day win rs="+maxwon);
 				 	System.out.println("Day ="+looseindex+" "+"Unluckiest day loose rs="+maxloose);
-			}
+				 	
+				 	Scanner scanner = new Scanner(System.in);
+				 	System.out.println("Do you want to continue the game?.(YES = 1 /NO = 0)");
+				 	userchoice = scanner.nextInt();
+				 	
+			}while(userchoice == yes);	
+		
+	}
 		    
+		
 		public static void main(String[] args) {
 		
 			System.out.println("Welcome to Gambling Simulation Problem");
